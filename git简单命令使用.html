@@ -10,6 +10,9 @@
 
     <!--Description-->
     
+        <meta name="description" content="git几个区说明：工作区：git的工作目录（work directory）暂存区：git暂存区stage，git add后添加到的区域，类似cache版本库：git版本库（.git），git commit 提交到的区域远程仓库: git的远程仓库
+git config –global  user.n">
+    
 
     <!--Author-->
     
@@ -40,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>Archiv: 2017 - </title>
+    <title></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -139,102 +142,121 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2017</h1>
+                <div class="post-heading">
+                    <h1>Untitled</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-06-23
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/06/23/mysql简单命令使用/">
-        <h1 class="post-title archive">
-            mysql简单命令使用
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-23
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>git几个区说明：<br>工作区：git的工作目录（work directory）<br>暂存区：git暂存区stage，git add后添加到的区域，类似cache<br>版本库：git版本库（.git），git commit 提交到的区域<br>远程仓库: git的远程仓库</p>
+<p>git config –global  user.name “sdongwan”<br>向global config添加user.name配置</p>
+<p>git config –global alias.ci “commit”<br>对git命令添加快捷方式（这里：git commit 可以直接用 git ci）</p>
+<p>git config –unset –global user.email<br>删除global config中的user.name配置</p>
+<p>git config –global –list<br>列出全部global config</p>
+<p>git –help clone<br>查看clone命令的使用帮助</p>
+<p>git help tutorial<br>查看git使用说明书</p>
+<p>git init<br>初始化git本地版本库</p>
+<p>git status<br>列出当前目录所有还没有被git管理的文件(没有被git add)和被git管理且被修改但还未提交(没有被git commit)的文件.</p>
+<p>git add  sdongwan.txt<br>将sdongwan.txt添加到暂存区( git add . 将目录下的文件全部添加到暂存区，.gitignore中的除外)</p>
+<p>git rm –cache sdongwan.txt<br>删除暂存区的sdongwan.txt文件</p>
+<p>git commit -m “info”<br>把暂存区的内容提交到版本库中</p>
+<p>git commit –amend<br>修改commit附加的信息(将进入liunx文本编辑器，首先按住shirt键+“:”，然后再按住shirt +“I”进入insert模式，进行编辑文本，然后点esc退出编辑模式，按住shirt键+“：”，再输入w进行文本保存，然后shirt+“：”，输入q退出编辑器)</p>
+<p>touch .gitignore<br>创建.gitignore文件</p>
+<p>git log<br>查看git提交的日志</p>
+<p>git reflog<br>打印出更详细的log</p>
+<p>git log -1<br>输出1条git日志</p>
+<p>git log  6d185e84c83e73dd568cc4ad865d9888db3bbbfa<br>查询某个commit的log</p>
+<p>git log 6e7f5a1f1cac27c7504998fc..HEAD<br>查询从6e7f5a1f1cac27c7504998fc这次提交到现在之间的commit log</p>
+<p>git log –since=”5 hours”<br>输出最近5个小时内的log</p>
+<p>git log –before=”5 hours” -1<br>输出5个小时之前的最后一个commit log</p>
+<p>git log –pretty=oneline<br>打印出日志格式为一行的日志</p>
+<p></p><h3>分支<h3><p></p>
+<p>git branch<br>查看有多少分支</p>
+<p>git branch sdongwan<br>新增一个sdongwan分支，但是没有切换到新增的分支上</p>
+<p>git branch -m master mymaster<br>把master分支重命名未mymaster</p>
+<p>git branch RB_1.0 master<br> 从当前主分支上面创建一个RB_1.0分支，但是没有切换到新增的分支上（同上面的命令差不多）</p>
+<p>git branch -d RB_1.0<br>删除RB_1.0分支</p>
+<p>git branch -m test testConflict<br>把test分支重命名为testConflict分支</p>
+<p>git branch -r<br>查看远程仓库的分支</p>
+<p>git checkout sdongwan<br>切换到sdongwan分支</p>
+<p>git checkout -b sdw master<br>创建一个sdw分支，并从master分支切换到这分支</p>
+<p>git tag 1.0 sdongwan<br>在sdongwan分支末梢打上tag 1.0（打上标签后，即使删除了某个分支，也可以利用tag来回到打了标签的位置）</p>
+<p>git tag<br>查看所有的tag</p>
+<p>git rebase sdongwan<br>将sdongwan分支合并到当前master分支上（效果是直接从分支点，把分支的节点全部放入到分支点的后面）</p>
+<p>git archive –format=zip –prefix=mysite-1.0/ 1.0 &gt; mysite-1.0.zip<br>将工作区下的文件打包成一个zip文件</p>
+<p>git archive –format=tar –prefix=mysite-1.0/ 1.0 | gzip &gt; mysite-1.0.tar.gz<br>将工作区下的文件打包成一个tar文件</p>
+<p>git clone git@github.com:sdongwan/GitLearn.git<br>克隆远程git仓库</p>
+<p>git add -p<br>启动补丁模式，查看版本库中文件和工作区文件的变化（输入y直接把改变的文件添加到暂存区中）；</p>
+<p> git diff<br> 比较工作目录下的文件（暂存的文件）与暂存区文件的差别</p>
+<p> git diff –cached<br> 比较版本库的文件与暂存区文件的差别</p>
+<p> git diff HEAD<br>比较工作目录中文件（暂存和未暂存的文件）与版本库中文件的区别</p>
+<p>git diff 6270181adda73d6a3336348a3483355f350b36a1<br>比较指定的commit版本与当前commit版本的区别</p>
+<p>git mv sdongwan.txt dongwan.txt<br>修改文件的名字（暂存区的或版本库的），把sdongwan.txt改为dongwan.txt</p>
+<p>git merge sdw<br>把sdw分支与当前分支合并</p>
+<p>git mergetool<br>使用mergetool来解决合并冲突</p>
+<p>git reset –hard 8ff24a6803173208f3e606e32dfcf82db9ac84d8<br>git回退到之前的某个commit</p>
+<p>git blame test.txt<br>查询特定文件的历史信息</p>
+<p>git revert -n HEAD<br>反转当前的一个提交（-n 表示保存在暂存区中，反转后，日志记录中仍然存在之前的log记录）</p>
+<p>git reset –hard HEAD^<br>复位到当前提交之前的一次提交，好像提交没有发生过（日志记录中不存在之前的log记录）</p>
+<p>git fetch origin master<br>拿取远程origin仓库master分支的最新代码（取完需要手动进行合并，下面的）<br>git merge origin/master<br>将origin上的master分支 merge 到当前 branch 上</p>
+<p>git pull origin master<br>拉去远程仓库的代码（拉取代码并合并）</p>
+<p>git remote add origin git@github.com:sdongwan/GitLearn.git<br>添加远程仓库</p>
+</h3></h3>
+
+                
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59061d06e2bbbe83"></script>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2017/06/23/git简单命令使用/">
-        <h1 class="post-title archive">
-            git简单命令使用
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-06-23
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <h3>Comentarios:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/05/03/MarkDown/">
-        <h1 class="post-title archive">
-            MarkDown使用
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-03
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/01/使用github-pages搭建个人博客/">
-        <h1 class="post-title archive">
-            使用github pages搭建个人博客
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-01
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/05/01/myfirstblog/">
-        <h1 class="post-title archive">
-            myfirstblog
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-05-01
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
@@ -313,7 +335,7 @@
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

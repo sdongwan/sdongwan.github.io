@@ -10,7 +10,12 @@
 
     <!--Description-->
     
-        <meta name="description" content="什么都不说了，来张三胖照">
+        <meta name="description" content="create database testDataBase;创建数据库（注意要以；结尾）
+show databases;查看所有的数据库
+use test;选择test数据库
+drop database test;删除test数据库
+show engines;查看mysql支持的引擎
+describe">
     
 
     <!--Author-->
@@ -20,7 +25,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="myfirstblog"/>
+        <meta property="og:title" content="null"/>
     
 
     <!--Open Graph Description-->
@@ -31,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
     
 
     <!--Page Cover-->
@@ -42,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>myfirstblog - </title>
+    <title></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -149,12 +154,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>myfirstblog</h1>
+                    <h1>Untitled</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
-                        2017-05-01
+                        2017-06-23
                     </span>
                 </div>
             </div>
@@ -175,7 +180,75 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>什么都不说了，来张三胖照<br><img src="photo.jpg" alt="photo"></p>
+                <p>create database testDataBase;<br>创建数据库（注意要以；结尾）</p>
+<p>show databases;<br>查看所有的数据库</p>
+<p>use test;<br>选择test数据库</p>
+<p>drop database test;<br>删除test数据库</p>
+<p>show engines;<br>查看mysql支持的引擎</p>
+<p>describe t_test;<br>查看t_test表的结构(desc t_test;简写形式)；</p>
+<p>show create table t_test;<br>查看表的详细定义</p>
+<p>drop table t_test;<br>删除t_test表</p>
+<p>alter table t_test rename t_table;<br>把t_test表重新命名为t_table表</p>
+<p>alter table t_test add loving char(20);<br>给t_test表添加一个loving字段，数据类型和长度为char(20)</p>
+<p>alter table t_test add friends char(125) first;<br>在表的第一个字段添加friends列；</p>
+<p>alter table t_test add trouble char(125) after name;<br>在指定字段后面添加字段</p>
+<p>alter table t_test drop trouble;<br>删除表字段</p>
+<p>alter table t_test modify name integer;<br>修改name字段类型为integer类型</p>
+<p>alter table t_test change name newname integer;<br>修改字段name列名为newname，数据类型保持integer不变（可以同时把数据类型改变，实现列名和数据类型同时改变）；</p>
+<p>alter table t_test modify newname int(11) after gender;<br>修改列的位置，把newname列放到gender列之后；</p>
+<p>create table t_test (<br>id integer ,<br>name char(20),<br>gender char(3),<br>constraint pk_name primary key(name)  //添加主键约束，设置主键<br>);</p>
+<p>create table t_test (<br>id integer primary key auto_increment ,  //设置主键以及自动增长；<br>name char(20),<br>gender char(3));</p>
+<p>create table t_test ( id integer primary key  auto_increment, name char(20) not null ,age integer unique );<br>设置主键自动增长，不为空和唯一约束</p>
+<p>show tables;<br>查看所有的表</p>
+<p>delete from t_stu where stuid=1;<br>删除一行数据</p>
+<p>insert into t_stu values (1,’sdongwan’,1,1);<br>添加一行数据</p>
+<p>update t_stu set cname=’sdongwan’ where cid = 1;<br> 更新一行数据</p>
+<p>select * from t_stu where stuid=1;<br>查询一行数据</p>
+<p>create table t_test ( id integer primary key auto_increment , brith datetime not null , age enum(‘18’,’19’,’20’) );<br>枚举字段的使用</p>
+<p>select id , id<em>2 ,id</em>4 from t_test;<br>mysql算术运算符</p>
+<p>select name from t_test where name like ‘sd%’;<br>like粗略选择</p>
+<p>select abs(-2) ,abs(-55);<br>使用mysql内置的函数</p>
+<p>select encode(‘sdongwan’,’bchunying’);<br>使用baochunying作为密码对sdongwan进行加密</p>
+<p>select decode(encode(‘sdongwan’,’bchunying’),’bchunying’);<br>使用bhunying作为密码对sdongwan进行解密</p>
+<p>select * from t_test where id in (4,5) order by id;<br> 查询id为4或者5的行</p>
+<p>添加外键约束：<br>外键所在的表是子表，外键参考的列所在的表是父表；<br>在插入数据时，要先插入父表数据，才能插入子表数据，否则直接插入子表数据会不成功；</p>
+<p>alter table t_stu add constraint FK_CID foreign key(cid) references t_classroom(cid);<br>添加外键约束，外键约束名字为FK_CID ，外键列cid， 参考列t_classroom(cid);</p>
+<p>alter table t_stu drop foreign key FK_CID;<br>删除外键名为FK_CID的外键约束</p>
+<p>alter table t_stu add constraint PK_CID foreign key(cid) references t_classroom(cid) on delete cascade on update restrict;<br>添加外键约束，并且设置删除和更新的方式</p>
+<blockquote>
+<p>CASCADE<br>在父表上update/delete记录时，同步update/delete掉子表的匹配记录</p>
+<p>SET NULL<br>在父表上update/delete记录时，将子表上匹配记录的列设为null (要注意子表的外键列不能为not null)</p>
+<p>NO ACTION<br>如果子表中有匹配的记录,则不允许对父表对应候选键进行update/delete操作</p>
+<p>RESTRICT<br>同no action, 都是立即检查外键约束</p>
+<p>SET NULL<br>父表有变更时,子表将外键列设置成一个默认的值 但Innodb不能识别</p>
+</blockquote>
+<p>连接</p>
+<p>内连接（两个表有同名的字段）：</p>
+<p>select stuid,name,gender,t_stu.cid,cname from t_stu inner join t_classroom ;<br>查询两个表内连接后字段值</p>
+<p>select stuid,name,gender,t_stu.cid,cname from t_stu inner join t_classroom  where t_stu.cid=t_classroom.cid;<br>跟上面的sql语句一样</p>
+<blockquote>
+<p>左连接的结果集包括指定的左表全部数据与匹配的右表数据,右表中没匹配的全为空值.关键字 left join</p>
+</blockquote>
+<p>select stuid,name,gender,t_stu.cid,cname from t_stu left join t_classroom  on t_stu.cid=t_classroom.cid;<br>表t_stu左连接t_classroom;<br>结果：<br>+——-+———-+——–+—–+———-+<br>| stuid | name     | gender | cid | cname    |<br>+——-+———-+——–+—–+———-+<br>|     1 | zbo      | boy    |   1 | 高三十班 |<br>|     2 | sdongwan | boy    |   1 | 高三十班 |<br>|     3 | jiji     | girl   |   3 | NULL     |<br>+——-+———-+——–+—–+———-+</p>
+<blockquote>
+<p>右连接的结果集包含指定的右表全部数据与匹配的左边数据,左边中没匹配的全为空值.关键字 right join</p>
+</blockquote>
+<p>select stuid,name,gender,t_stu.cid,cname from t_stu right join t_classroom  on t_stu.cid=t_classroom.cid;<br>表t_stu右连接t_classroom;<br>结果：<br>+——-+———-+——–+——+———-+<br>| stuid | name     | gender | cid  | cname    |<br>+——-+———-+——–+——+———-+<br>|     1 | zbo      | boy    |    1 | 高三十班 |<br>|     2 | sdongwan | boy    |    1 | 高三十班 |<br>| NULL  | NULL     | NULL   | NULL | 网工     |<br>+——-+———-+——–+——+———-+</p>
+<p>having和where使用的区别：</p>
+<blockquote>
+<p>where针对表中的列发挥作用，查询数据<br>having对查询结果中的列发挥作用，筛选数据<br>having使用在order by之前，group by之后</p>
+</blockquote>
+<p>select name from t_stu group by name having name in (‘sdongwan’,’za’) order by  name asc;<br>查询 name，并且按照name升序排序</p>
+<p>索引</p>
+<p>create index index_name on t_stu(name);<br>在表t_stu的name列上面创建一个索引name;</p>
+<p>show index from t_stu;<br>查看t_stu表中的全部索引</p>
+<p>drop index index_name on t_stu;<br>删除t_stu表上的index_name索引</p>
+<p>视图（类似银行的小窗口，把指定数据拿出来创建视图，这样就不用直接操作数据库，提高安全性）：<br>create view stuView(name,gender) as select name,gender from t_stu;<br>从表select出name，gender来创建视图view</p>
+<p>desc stuView;<br>查看视图结构</p>
+<p>对视图的操作同直接操作数据库一样：<br>select * from stuView;<br>查询视图的全部数据</p>
+<p>drop view if exists stuView;<br>删除视图stuView；</p>
+<p>create or replace view stuView as select name,gender,cid from t_stu ;<br>更新视图结构</p>
+<p>update stuView set name = ‘dengchaori’ where cid=1;<br>更新视图数据</p>
 
 
                 
@@ -192,7 +265,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     
     <hr />
-    <h3>Kommentare:</h3>
+    <h3>Comentarios:</h3>
     <div id="disqus_thread">
         <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
